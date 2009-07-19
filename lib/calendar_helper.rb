@@ -73,6 +73,7 @@ module CalendarHelper
     defaults = {
       :table_class => 'calendar',
       :month_name_class => 'monthName',
+      :year_name_class => 'yearName',
       :other_month_class => 'otherMonth',
       :day_name_class => 'dayName',
       :day_class => 'day',
@@ -105,7 +106,7 @@ module CalendarHelper
     else
       colspan=7
     end
-    cal << %(<th colspan="#{colspan}" class="#{options[:month_name_class]}">#{Date::MONTHNAMES[options[:month]]}</th>)
+    cal << %(<th colspan="#{colspan}" class="#{options[:month_name_class]}"><span class="#{options[:month_name_class]}">#{Date::MONTHNAMES[options[:month]]}</span> <span class="#{options[:year_name_class]}">#{options[:year]}</span></th>)
     cal << %(<th colspan="2">#{options[:next_month_text]}</th>) if options[:next_month_text]
     cal << %(</tr><tr class="#{options[:day_name_class]}">)
     day_names.each do |d|
